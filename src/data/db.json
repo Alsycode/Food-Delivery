@@ -1,0 +1,245 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "user123",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "name": "adsd",
+      "email": "shyamalfred@gmail.com",
+      "password": "alfred",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Margherita Pizza",
+      "price": 250,
+      "category": "Pizza",
+      "image": "https://media.istockphoto.com/id/604829224/photo/margherita-pizza.jpg?s=612x612&w=0&k=20&c=ALD_hdBp_lnlFQfzOp-_yjPtg5Sbq5P1hHGm30t3HYc=",
+      "tags": [
+        "tomato",
+        "mozzarella",
+        "basil"
+      ],
+      "description": "Classic pizza topped with fresh tomato sauce, mozzarella cheese, and basil leaves.",
+      "bestseller": true
+    },
+    {
+      "id": "2",
+      "name": "Pepperoni Pizza",
+      "price": 280,
+      "category": "Pizza",
+      "image": "https://t4.ftcdn.net/jpg/02/16/68/41/360_F_216684185_ToFFuLnfuf0vAWP0zIasRWUKdEKjnSV6.jpg",
+      "tags": [
+        "pepperoni",
+        "cheese",
+        "tomato sauce"
+      ],
+      "description": "A flavorful pizza loaded with pepperoni slices, melted cheese, and tangy tomato sauce.",
+      "chefsChoice": true
+    },
+    {
+      "id": "3",
+      "name": "Caesar Salad",
+      "price": 300,
+      "category": "Salad",
+      "image": "https://t3.ftcdn.net/jpg/05/82/16/08/360_F_582160857_MBwd3pk4VtYvPTpCcTQUEhtTG1fSavjk.jpg",
+      "tags": [
+        "lettuce",
+        "croutons",
+        "parmesan",
+        "caesar dressing"
+      ],
+      "description": "Crisp romaine lettuce tossed with creamy Caesar dressing, parmesan, and crunchy croutons."
+    },
+    {
+      "id": "4",
+      "name": "Grilled Chicken",
+      "price": 180,
+      "category": "Main Course",
+      "image": "https://img.freepik.com/premium-photo/two-grilled-chicken-legs-roasted-with-oranges_147620-329.jpg?semt=ais_hybrid&w=740",
+      "tags": [
+        "chicken",
+        "spices",
+        "grilled"
+      ],
+      "description": "Tender grilled chicken seasoned with aromatic spices for a smoky and savory flavor.",
+      "bestseller": true
+    },
+    {
+      "id": "5",
+      "name": "Chocolate Cake",
+      "price": 90,
+      "category": "Dessert",
+      "image": "https://marketplace.canva.com/RIbps/MAFsj2RIbps/1/tl/canva-chocolate-cake-MAFsj2RIbps.jpg",
+      "tags": [
+        "chocolate",
+        "flour",
+        "sugar",
+        "cocoa"
+      ],
+      "description": "Rich and moist chocolate cake made with premium cocoa and topped with smooth chocolate frosting."
+    },
+    {
+      "id": "6",
+      "name": "Veggie Supreme Pizza",
+      "price": 260,
+      "category": "Pizza",
+      "image": "https://i.redd.it/b3tojwqwc5va1.jpg",
+      "tags": [
+        "bell pepper",
+        "onion",
+        "olives",
+        "cheese"
+      ],
+      "description": "Delicious pizza loaded with fresh bell peppers, onions, olives, and melted cheese.",
+      "chefsChoice": true
+    },
+    {
+      "id": "7",
+      "name": "Greek Salad",
+      "price": 320,
+      "category": "Salad",
+      "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999",
+      "tags": [
+        "feta",
+        "cucumber",
+        "olives",
+        "tomato",
+        "onion"
+      ],
+      "description": "Refreshing salad with crisp cucumbers, tomatoes, olives, onions, and tangy feta cheese."
+    },
+    {
+      "id": "8",
+      "name": "Beef Steak",
+      "price": 350,
+      "category": "Main Course",
+      "image": "https://media.gettyimages.com/id/936610964/photo/beef-steak.jpg?s=612x612&w=0&k=20&c=De7ZmkQz0vbIeteZbbTkxqU56UHTpsJ3fwlGA_DBYDU=",
+      "tags": [
+        "beef",
+        "black pepper",
+        "garlic",
+        "herbs"
+      ],
+      "description": "Juicy beef steak seasoned with garlic, black pepper, and fresh herbs, grilled to perfection.",
+      "bestseller": true,
+      "chefsChoice": true
+    },
+    {
+      "id": "9",
+      "name": "Tiramisu",
+      "price": 110,
+      "category": "Dessert",
+      "image": "https://imgs.search.brave.com/UxSexDbqCgH3fAZO2dz79Ow5aR16xV0OC1kH5aNNfo8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjQv/NjcxLzIwNy9zbWFs/bC9jbG9zZS11cC10/YXN0eS1mb29kZ3Jh/cGh5LW9mLWl0YWxp/YW4tdGlyYW1pc3Ut/YWktZ2VuZXJhdGl2/ZS1waG90by5qcGc",
+      "tags": [
+        "mascarpone",
+        "coffee",
+        "cocoa",
+        "ladyfingers"
+      ],
+      "description": "Classic Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cream."
+    },
+    {
+      "id": "10",
+      "name": "Mozzarella Sticks",
+      "price": 150,
+      "category": "Appetizer",
+      "image": "https://t4.ftcdn.net/jpg/03/02/54/21/360_F_302542121_wW8LmXB6HSEnDM8npAtYaLXEaPbIEmG0.jpg",
+      "tags": [
+        "mozzarella",
+        "breadcrumbs",
+        "fried"
+      ],
+      "description": "Crispy golden fried mozzarella sticks with a gooey melted cheese center.",
+      "bestseller": true
+    },
+    {
+      "id": "11",
+      "name": "Spaghetti Carbonara",
+      "price": 220,
+      "category": "Pasta",
+      "image": "https://media.gettyimages.com/id/1306099948/photo/spaghetti-carbonara.jpg?s=612x612&w=0&k=20&c=ywJvoZX2p42I0P4v_qh-aI4chQAQLJi0CYIv3F8Sl0Q=",
+      "tags": [
+        "spaghetti",
+        "egg",
+        "cheese",
+        "bacon"
+      ],
+      "description": "Traditional Italian pasta with creamy sauce, eggs, parmesan cheese, and crispy bacon."
+    },
+    {
+      "id": "12",
+      "name": "Club Sandwich",
+      "price": 200,
+      "category": "Sandwich",
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90",
+      "tags": [
+        "chicken",
+        "bacon",
+        "lettuce",
+        "tomato",
+        "bread"
+      ],
+      "description": "Layered sandwich with grilled chicken, bacon, lettuce, tomato, and toasted bread.",
+      "chefsChoice": true
+    },
+    {
+      "id": "13",
+      "name": "BBQ Chicken Pizza",
+      "price": 290,
+      "category": "Pizza",
+      "image": "https://t4.ftcdn.net/jpg/02/16/68/41/360_F_216684185_ToFFuLnfuf0vAWP0zIasRWUKdEKjnSV6.jpg",
+      "tags": [
+        "chicken",
+        "bbq sauce",
+        "onions",
+        "cheese"
+      ],
+      "description": "Savory pizza topped with BBQ chicken, onions, and melted cheese.",
+      "bestseller": true
+    },
+    {
+      "id": "14",
+      "name": "Caprese Salad",
+      "price": 310,
+      "category": "Salad",
+      "image": "https://t4.ftcdn.net/jpg/02/37/69/23/360_F_237692362_KGUJxZktFsL1uG8KnhJZFGapJPiUCJYM.jpg",
+      "tags": [
+        "tomato",
+        "mozzarella",
+        "basil",
+        "olive oil"
+      ],
+      "description": "Simple and fresh salad of sliced tomatoes, mozzarella, basil, and olive oil."
+    },
+    {
+      "id": "15",
+      "name": "Salmon Fillet",
+      "price": 380,
+      "category": "Main Course",
+      "image": "https://imgs.search.brave.com/ZAeYEQ9bzV3hd7k2_Sh4Sz05aJ2Sx9l6s_AdIFOWezM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAxLzU3LzU4LzA5/LzM2MF9GXzE1NzU4/MDk2Ml9QR3pjQmNk/eHAySTE2UE0waVla/VmZhWTBsOUJwSnU3/Wi5qcGc",
+      "tags": [
+        "salmon",
+        "lemon",
+        "herbs",
+        "grilled"
+      ],
+      "description": "Fresh salmon fillet grilled with lemon and herbs for a light, flavorful meal.",
+      "chefsChoice": true
+    }
+  ]
+}
