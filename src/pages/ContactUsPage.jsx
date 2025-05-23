@@ -10,10 +10,10 @@ const About = () => {
       <div className='my-10 flex flex-col md:flex-row gap-16'>
 <img className='w-full md:max-w-[450px]' src="" alt=''/>
 <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
-<p>Forever was born out of a passion for innovation and a desire to revolutionize the way people shop online. Our journey began with a simple idea: to provide a platform where customers can easily discover, explore, and purchase a wide range of products from the comfort of their homes.</p>
-<p>Since our inception, we've worked tirelessly to curate a diverse selection of high-quality products that cater to every taste and preference. From fashion and beauty to electronics and home essentials, we offer an extensive collection sourced from trusted brands and suppliers.</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, labore dolorum delectus, eveniet enim iure non vitae voluptates blanditiis tempora iste ea eos magni praesentium unde minus quas quia explicabo sunt necessitatibus eligendi ipsa fuga odio. Expedita aliquam eos eaque voluptate quos corrupti nemo possimus temporibus quis, fuga rerum sunt deleniti? Dignissimos odio temporibus repudiandae saepe debitis perferendis aut quam consequatur obcaecati aliquam, modi alias suscipit accusamus officiis, cupiditate tempore doloremque reprehenderit eveniet! Non fuga nihil magni officia debitis, quaerat nostrum aut placeat? Esse laudantium ducimus fugiat voluptas dolorem totam aut autem repellat, eos mollitia enim harum, tempore officia sint.</p>
+
 <b className='text-gray-800'>Our Mission</b>
-<p>Our mission at Forever is to empower customers with choice, convenience, and confidence. We're dedicated to providing a seamless shopping experience that exceeds expectations, from browsing and ordering to delivery and beyond.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vel minus fugit dignissimos animi cum aliquam vero nihil impedit. Reiciendis, est reprehenderit architecto explicabo rem accusantium asperiores ut recusandae neque dignissimos totam ex deleniti? Earum, cumque porro! Labore reiciendis fugit sed libero dolor aperiam, nam, qui ratione assumenda nemo explicabo.</p>
 </div>
 
       </div>
