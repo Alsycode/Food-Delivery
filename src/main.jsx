@@ -14,17 +14,17 @@ import RegisterPage from './pages/RegisterPage';
 import AdminPage from './pages/AdminPage';
 import UserRoot from './root/UserRoot';
 import AdminRoot from './root/AdminRoot';
-
+import AboutUspage from './pages/AboutUspage';
+import MenuPage from './pages/MenuPage';
+import ContactUsPage from './pages/ContactUsPage';
 
 function AppWrapper({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.setAttribute('data-theme', 'dark');
       document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.setAttribute('data-theme', 'light');
       document.documentElement.classList.remove('dark');
     }
   }, [isDarkMode]);
@@ -60,6 +60,18 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <RegisterPage />,
+      },
+      {
+        path: 'about',
+        element: <AboutUspage />,
+      },
+      {
+        path: 'contactus',
+        element: <ContactUsPage />,
+      },
+      {
+        path: 'menu',
+        element: <MenuPage />,
       },
     ],
   },

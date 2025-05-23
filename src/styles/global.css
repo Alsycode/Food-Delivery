@@ -1,3 +1,262 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+/* Define custom color variables from tailwind.config.js */
+:root {
+  --light-bg: #ffffff;
+  --dark-bg: #1f2937;
+  --light-text: #1f2937;
+  --dark-text: #e5e7eb;
+  --light-primary: #2563eb;
+  --dark-primary: #60a5fa;
+  --light-secondary: #6b7280;
+  --dark-secondary: #9ca3af;
+  --light-success: #16a34a;
+  --dark-success: #22c55e;
+  --light-error: #dc2626;
+  --dark-error: #ef4444;
+  --light-warning: #d97706;
+  --dark-warning: #f59e0b;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--light-bg);
+  color: var(--light-text);
+}
+
+.dark body {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* Custom card component */
+.card {
+  background: var(--light-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+
+}
+
+.dark .card {
+  background: #111827; /* gray-900 */
+}
+
+/* Custom button */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-primary {
+  background: var(--light-primary);
+  color: #ffffff;
+}
+
+.select {
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    width: 300px;
+    background: var(--light-bg);
+    color: var(--light-text);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    appearance: none; /* Remove default browser styling */
+     /* Custom dropdown arrow */
+
+  }
+  
+  .select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-primary);
+  }
+  
+  .dark .select {
+    border: 1px solid #4b5563; /* gray-600 */
+    background: #1f2937; /* gray-800 */
+    color: var(--dark-text);
+     /* Light arrow for dark mode */
+  }
+  
+  .dark .select:focus {
+    box-shadow: 0 0 0 2px var(--dark-primary);
+  }
+
+.btn-primary:hover {
+  background: #1e40af; /* blue-700 */
+}
+
+.dark .btn-primary {
+  background: var(--dark-primary);
+}
+
+.dark .btn-primary:hover {
+  background: #3b82f6; /* blue-500 */
+}
+
+.btn-warning {
+  background: var(--light-warning);
+  color: #ffffff;
+}
+
+.btn-warning:hover {
+  background: #b45309; /* amber-700 */
+}
+
+.dark .btn-warning {
+  background: var(--dark-warning);
+}
+
+.dark .btn-warning:hover {
+  background: #d97706; /* amber-600 */
+}
+
+.btn-error {
+  background: var(--light-error);
+  color: #ffffff;
+}
+
+.btn-error:hover {
+  background: #b91c1c; /* red-700 */
+}
+
+.dark .btn-error {
+  background: var(--dark-error);
+}
+
+.dark .btn-error:hover {
+  background: #dc2626; /* red-600 */
+}
+
+.btn-outline {
+  border: 1px solid var(--light-secondary);
+  color: var(--light-secondary);
+}
+
+.btn-outline:hover {
+  background: var(--light-secondary);
+  color: #ffffff;
+}
+
+.dark .btn-outline {
+  border: 1px solid var(--dark-secondary);
+  color: var(--dark-secondary);
+}
+
+.dark .btn-outline:hover {
+  background: var(--dark-secondary);
+  color: var(--dark-text);
+}
+
+/* Custom input */
+.input {
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  width: 300px;
+  background: var(--light-bg);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-primary);
+}
+
+.dark .input {
+  border: 1px solid #4b5563; /* gray-600 */
+  background: #1f2937; /* gray-800 */
+  color: var(--dark-text);
+}
+
+.dark .input:focus {
+  box-shadow: 0 0 0 2px var(--dark-primary);
+}
+
+/* Custom file input */
+.file-input {
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+}
+
+.dark .file-input {
+  border: 1px solid #4b5563; /* gray-600 */
+  background: #1f2937; /* gray-800 */
+  color: var(--dark-text);
+}
+
+/* Custom textarea */
+.textarea {
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+}
+
+.textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-primary);
+}
+
+.dark .textarea {
+  border: 1px solid #4b5563; /* gray-600 */
+  background: #1f2937; /* gray-800 */
+  color: var(--dark-text);
+}
+
+.dark .textarea:focus {
+  box-shadow: 0 0 0 2px var(--dark-primary);
+}
+
+/* Custom badge */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+
+.badge-success {
+  background: var(--light-success);
+  color: #ffffff;
+}
+
+.dark .badge-success {
+  background: var(--dark-success);
+}
+
+.badge-info {
+  background: var(--light-primary);
+  color: #ffffff;
+}
+
+.dark .badge-info {
+  background: var(--dark-primary);
+}
+
+/* Custom checkbox */
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--light-primary);
+}
+
+.checkbox:focus {
+  box-shadow: 0 0 0 2px var(--light-primary);
+}
+
+.dark .checkbox {
+  color: var(--dark-primary);
+}
+
+.dark .checkbox:focus {
+  box-shadow: 0 0 0 2px var(--dark-primary);
+}

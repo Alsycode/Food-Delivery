@@ -18,7 +18,7 @@ const ProductCard = ({ item }) => {
       </figure>
       <div className="card-body">
   <h2 className="card-title font-bold text-2xl">{item.name}</h2>
-<p>Fresh salmon fillet grilled with lemon and herbs for a light, flavorful meal.</p>
+<p>{item.description}</p>
 
   {/* Tags */}
   <div className="flex flex-wrap gap-1">
@@ -34,7 +34,7 @@ const ProductCard = ({ item }) => {
 
   {/* <span className="inline-block mt-1 rounded-md bg-blue-50 px-1 py-0.5 text-xs font-medium text-blue-700 ring-1 ring-blue-600/20 ring-inset max-w-30" style={{background:"#d0efe4",width:"content"}}>{item.category}</span> */}
 
-  <div className=" flex justify-between items-center mt-2">
+  <div className=" flex justify-between  items-center mt-2">
   <h2 className='font-bold text-2xl'>Rs. {item.price.toFixed(2)}</h2>
     <button
       className="btn"

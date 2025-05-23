@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Header({ isDarkMode, toggleDarkMode }) {
@@ -10,11 +10,49 @@ function Header({ isDarkMode, toggleDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
+console.log("dak mode",isDarkMode)
   return (
-    <header className="navbar bg-base-100   dark:bg-gray-800 " style={{background:"#e17e0f"}}>
+    <header className="navbar bg-base-100 dark:bg-gray-800 md:px-10 sm:px-10" style={{background: "#e17e0f"}}>
       <div className="navbar-start">
-        <Link to={isAdmin ? "/admin" : "/"} className="text-2xl font-bold text-white" >Yummm</Link>
+        <Link to={isAdmin ? "/admin" : "/"} className="text-2xl font-bold text-white">Yummm</Link>
+      </div>
+
+      {/* Navigation links for all screens */}
+      <div className="navbar-center hidden lg:flex">
+        <div className="flex gap-2">
+          <NavLink 
+            to="" 
+            className={({ isActive }) => 
+              `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink 
+            to="/menu" 
+            className={({ isActive }) => 
+              `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
+            }
+          >
+            Menu
+          </NavLink>
+          <NavLink 
+            to="/about" 
+            className={({ isActive }) => 
+              `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
+            }
+          >
+            About
+          </NavLink>
+          <NavLink 
+            to="/contactus" 
+            className={({ isActive }) => 
+              `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
+            }
+          >
+            Contact Us
+          </NavLink>
+        </div>
       </div>
 
       {/* Hamburger for mobile and md screens */}
@@ -33,6 +71,42 @@ function Header({ isDarkMode, toggleDarkMode }) {
 
         {menuOpen && (
           <div className="absolute right-4 top-16 z-50 w-48 bg-white dark:bg-gray-700 shadow-lg rounded-lg p-4 flex flex-col space-y-2">
+            <NavLink 
+              to="" 
+              className={({ isActive }) => 
+                `btn btn-ghost w-full ${isActive ? 'font-bold' : ''}`
+              }
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </NavLink>
+            <NavLink 
+              to="/menu" 
+              className={({ isActive }) => 
+                `btn btn-ghost w-full ${isActive ? 'font-bold' : ''}`
+              }
+              onClick={() => setMenuOpen(false)}
+            >
+              Menu
+            </NavLink>
+            <NavLink 
+              to="/about" 
+              className={({ isActive }) => 
+                `btn btn-ghost w-full ${isActive ? 'font-bold' : ''}`
+              }
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </NavLink>
+            <NavLink 
+              to="/contactus" 
+              className={({ isActive }) => 
+                `btn btn-ghost w-full ${isActive ? 'font-bold' : ''}`
+              }
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </NavLink>
             <button
               onClick={toggleDarkMode}
               className={`btn ${isDarkMode ? 'btn-soft' : 'btn-neutral'} w-full`}

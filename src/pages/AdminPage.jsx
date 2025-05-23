@@ -15,7 +15,6 @@ function AdminPage() {
   });
   const [editingProduct, setEditingProduct] = useState(null);
 
-  // Fetch products and users on mount
   useEffect(() => {
     fetch('http://localhost:3001/products')
       .then(res => res.json())
@@ -28,12 +27,10 @@ function AdminPage() {
       .catch(err => alert('Failed to load users: ' + err.message));
   }, []);
 
-  // Handle image file selection
   const handleImageChange = (e, isEditing) => {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Validate file type and size
     if (!file.type.startsWith('image/')) {
       alert('Please select an image file.');
       return;
@@ -179,18 +176,16 @@ function AdminPage() {
   };
 
   return (
-    <div className="p-4 flex flex-col items-center justify-center">
+    <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
 
       {/* Add/Edit Product Form */}
-      <div className="mb-8 sm:w-full lg:w-[70%]">
+      <div className="mb-8">
         <h3 className="text-xl font-semibold mb-2">{editingProduct ? 'Edit Product' : 'Add New Product'}</h3>
-        <div className="card bg-base-100 dark:bg-gray-700 shadow-xl">
-          <div className="card-body">
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
+        <div className="card">
+          <div className="p-6">
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1">Name</label>
               <input
                 type="text"
                 value={editingProduct ? editingProduct.name : newProduct.name}
@@ -199,14 +194,12 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, name: e.target.value })
                     : setNewProduct({ ...newProduct, name: e.target.value })
                 }
-                className="input input-bordered w-full"
+                className="input"
                 placeholder="Enter product name"
               />
             </div>
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Price</span>
-              </label>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1">Price</label>
               <input
                 type="number"
                 step="0.01"
@@ -216,14 +209,12 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, price: e.target.value })
                     : setNewProduct({ ...newProduct, price: e.target.value })
                 }
-                className="input input-bordered w-full"
+                className="input"
                 placeholder="Enter price"
               />
             </div>
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Category</span>
-              </label>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1">Category</label>
               <input
                 type="text"
                 value={editingProduct ? editingProduct.category : newProduct.category}
@@ -232,19 +223,17 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, category: e.target.value })
                     : setNewProduct({ ...newProduct, category: e.target.value })
                 }
-                className="input input-bordered w-full"
+                className="input"
                 placeholder="Enter category"
               />
             </div>
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Image</span>
-              </label>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1">Image</label>
               <input
                 type="file"
                 accept="image/*"
                 onChange={(e) => handleImageChange(e, !!editingProduct)}
-                className="file-input file-input-bordered w-full"
+                className="file-input"
               />
               {(editingProduct?.image || newProduct.image) && (
                 <div className="mt-2">
@@ -256,10 +245,8 @@ function AdminPage() {
                 </div>
               )}
             </div>
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Tags (comma-separated)</span>
-              </label>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1">Tags (comma-separated)</label>
               <input
                 type="text"
                 value={editingProduct ? editingProduct.tags : newProduct.tags}
@@ -268,14 +255,12 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, tags: e.target.value })
                     : setNewProduct({ ...newProduct, tags: e.target.value })
                 }
-                className="input input-bordered w-full"
+                className="input"
                 placeholder="e.g., tomato, cheese, basil"
               />
             </div>
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Description</span>
-              </label>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1">Description</label>
               <textarea
                 value={editingProduct ? editingProduct.description : newProduct.description}
                 onChange={(e) =>
@@ -283,13 +268,12 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, description: e.target.value })
                     : setNewProduct({ ...newProduct, description: e.target.value })
                 }
-                className="textarea textarea-bordered w-full"
+                className="textarea"
                 placeholder="Enter product description"
               />
             </div>
-            <div className="form-control mb-4">
-              <label className="label cursor-pointer">
-                <span className="label-text">Bestseller</span>
+            <div className="mb-4">
+              <label className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={editingProduct ? editingProduct.bestseller : newProduct.bestseller}
@@ -300,11 +284,11 @@ function AdminPage() {
                   }
                   className="checkbox"
                 />
+                <span>Bestseller</span>
               </label>
             </div>
-            <div className="form-control mb-4">
-              <label className="label cursor-pointer">
-                <span className="label-text">Chef's Choice</span>
+            <div className="mb-4">
+              <label className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={editingProduct ? editingProduct.chefsChoice : newProduct.chefsChoice}
@@ -315,6 +299,7 @@ function AdminPage() {
                   }
                   className="checkbox"
                 />
+                <span>Chef's Choice</span>
               </label>
             </div>
             <button
@@ -338,16 +323,16 @@ function AdminPage() {
       {/* Product List */}
       <div className="mb-8">
         <h3 className="text-xl font-semibold mb-2">Manage Products</h3>
-        <div className="card bg-base-100 dark:bg-gray-700 shadow-xl">
-          <div className="card-body">
+        <div className="card">
+          <div className="p-6">
             {products.length === 0 ? (
-              <p className="text-base-content/70">No products available.</p>
+              <p className="text-light-secondary dark:text-dark-secondary">No products available.</p>
             ) : (
               <div className="space-y-4">
                 {products.map(product => (
                   <div
                     key={product.id}
-                    className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-2 border-b border-base-200 dark:border-gray-600"
+                    className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-2 border-b border-gray-200 dark:border-gray-700"
                   >
                     <div className="flex items-start space-x-4">
                       <img
@@ -357,12 +342,12 @@ function AdminPage() {
                       />
                       <div>
                         <h4 className="font-semibold">{product.name}</h4>
-                        <p className="text-base-content/70">
+                        <p className="text-light-secondary dark:text-dark-secondary">
                           Rs. {product.price.toFixed(2)} | {product.category}
                         </p>
-                        <p className="text-base-content/70">Tags: {product.tags.join(', ')}</p>
-                        <p className="text-base-content/70">{product.description}</p>
-                        <p className="text-base-content/70">
+                        <p className="text-light-secondary dark:text-dark-secondary">Tags: {product.tags.join(', ')}</p>
+                        <p className="text-light-secondary dark:text-dark-secondary">{product.description}</p>
+                        <p className="text-light-secondary dark:text-dark-secondary">
                           {product.bestseller && <span className="badge badge-success mr-2">Bestseller</span>}
                           {product.chefsChoice && <span className="badge badge-info">Chef's Choice</span>}
                         </p>
@@ -393,20 +378,20 @@ function AdminPage() {
       {/* User List */}
       <div>
         <h3 className="text-xl font-semibold mb-2">Manage Users</h3>
-        <div className="card bg-base-100 dark:bg-gray-700 shadow-xl">
-          <div className="card-body">
+        <div className="card">
+          <div className="p-6">
             {users.length === 0 ? (
-              <p className="text-base-content/70">No users available.</p>
+              <p className="text-light-secondary dark:text-dark-secondary">No users available.</p>
             ) : (
               <div className="space-y-4">
                 {users.map(user => (
                   <div
                     key={user.id}
-                    className="flex justify-between items-center p-2 border-b border-base-200 dark:border-gray-600 gap-4"
+                    className="flex justify-between items-center p-2 border-b border-gray-200 dark:border-gray-700"
                   >
                     <div>
                       <h4 className="font-semibold">{user.name}</h4>
-                      <p className="text-base-content/70">{user.email}</p>
+                      <p className="text-light-secondary dark:text-dark-secondary">{user.email}</p>
                     </div>
                     <button
                       onClick={() => handleDeleteUser(user.id)}

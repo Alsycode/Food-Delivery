@@ -30,9 +30,9 @@ function LoginPage() {
     <div className="flex items-center justify-center min-h-screen">
       <div className="card bg-base-100 dark:bg-gray-700 shadow-xl w-full max-w-md">
         <div className="card-body">
-          <h2 className="card-title text-2xl mb-4">Login</h2>
+          <h2 className="card-title flex justify-center text-2xl mb-4 text-center ">Login</h2>
           <div>
-            <div className="form-control mb-4">
+            <div className="form-control flex justify-between mb-4">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
@@ -44,7 +44,7 @@ function LoginPage() {
                 placeholder="Enter your email"
               />
             </div>
-            <div className="form-control mb-4">
+            <div className="form-control flex justify-between mb-4">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
@@ -62,9 +62,15 @@ function LoginPage() {
             >
               Login
             </button>
+            <div className='flex items-center justify-between'>
             <p className="mt-4 text-center">
-              Don't have an account? <Link to="/register" className="link link-primary">Register</Link>
+              Don't have an account?
+              </p>
+              <p className='mt-4 text-center'>
+               <Link to="/register" className="link link-primary">   Register</Link>
             </p>
+            </div>
+          
           </div>
         </div>
       </div>

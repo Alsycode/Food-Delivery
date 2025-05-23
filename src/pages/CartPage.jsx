@@ -15,7 +15,10 @@ function CartPage() {
     dispatch(clearCart());
     alert('Checkout successful! Thank you for your order.');
   };
-
+const clearItems = () => {
+  dispatch(clearCart());
+  alert("Cart cleared")
+}
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
@@ -58,9 +61,15 @@ function CartPage() {
             <p className="text-xl font-bold">Total: Rs. {total.toFixed(2)}</p>
             <button
               onClick={handleCheckout}
-              className="btn btn-success mt-2"
+              className="btn btn-success mt-2 mr-2"
             >
               Checkout
+            </button>
+            <button
+              onClick={clearItems}
+              className="btn btn-warning mt-2"
+            >
+              Clear cart
             </button>
           </div>
         </>
