@@ -14,7 +14,7 @@ console.log("dak mode",isDarkMode)
   return (
     <header className="navbar bg-base-100 dark:bg-gray-800 md:px-10 sm:px-10" style={{background: "#e17e0f"}}>
       <div className="navbar-start">
-        <Link to={isAdmin ? "/admin" : "/"} className="text-2xl font-bold text-white">Yummm</Link>
+        <Link to={isAdmin ? "/admin" : "/"} className="text-3xl font-bold text-white">Yummm</Link>
       </div>
 
       {/* Navigation links for all screens */}

@@ -8,7 +8,7 @@ const About = () => {
 <Title text1={'ABOUT'} text2={"US"}/>
       </div>
       <div className='my-10 flex flex-col md:flex-row gap-16'>
-<img className='w-full md:max-w-[450px]' src="" alt=''/>
+<img className='w-full md:max-w-[450px]' src="https://imgs.search.brave.com/e6fIiwJfZw8LTYTF-hDPLtR3h31aSpWzByCQ-JM0pbM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjgv/MTAyLzU5OS9zbWFs/bC9kZWxpc2lvdXMt/YnVyZ2VyLW9uLXRo/ZS1wbGF0ZS1pc29s/YXRlZC1mcmVlLXBo/b3RvLmpwZw" alt=''/>
 <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, labore dolorum delectus, eveniet enim iure non vitae voluptates blanditiis tempora iste ea eos magni praesentium unde minus quas quia explicabo sunt necessitatibus eligendi ipsa fuga odio. Expedita aliquam eos eaque voluptate quos corrupti nemo possimus temporibus quis, fuga rerum sunt deleniti? Dignissimos odio temporibus repudiandae saepe debitis perferendis aut quam consequatur obcaecati aliquam, modi alias suscipit accusamus officiis, cupiditate tempore doloremque reprehenderit eveniet! Non fuga nihil magni officia debitis, quaerat nostrum aut placeat? Esse laudantium ducimus fugiat voluptas dolorem totam aut autem repellat, eos mollitia enim harum, tempore officia sint.</p>
 
@@ -18,7 +18,7 @@ const About = () => {
 
       </div>
       <div className='text-4xl py-4'>
-<Title text1={"WHY"} text2={"CHOOSE US"}/>
+<Title text1={"WHY"} text2={" CHOOSE US"}/>
 </div>
 <div className='text-sm mb-20 flex flex-col md:flex-row'>
 <div className='flex flex-col px-10 md:px-16 py-8 sm:py-20 gap-5 border'>
