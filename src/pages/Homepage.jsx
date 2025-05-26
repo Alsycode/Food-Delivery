@@ -4,7 +4,7 @@ import db from '../data/db.json';
 import Chefschoice from '../components/chefsChoice';
 import BestSellers from "../components/BestSellers"
 import Title from '../components/Title';
-
+import { NavLink } from 'react-router-dom';
 function HomePage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('All');
@@ -37,7 +37,7 @@ function HomePage() {
             <Title text1={"OUR EXQUISITE"} text2={" MENU"} />
           </div>
           {/* Rendering category tabs */}
-          <div className='flex justify-evenly items-center'>
+          <div className='flex justify-evenly items-center overflow-scroll'>
            
           <button 
                           onClick={() => setSelectedCategory("All")}className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
@@ -106,9 +106,18 @@ function HomePage() {
           </div>
           {/* Rendering filtered products */}
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 gap-y-6'>
-            {filteredItems.map((item, index) => (
+            {filteredItems.slice(0, 4).map((item, index) => (
               <ProductCard key={index} item={item} />
             ))}
+          </div>
+          <div className='flex justify-center items-center'>
+            <NavLink 
+                        to="/menu" >
+                          <button className='bg-[#df810d] mt-4 px-5 py-2 rounded-[20px] text-white font-bold text-xl'>
+EXPLORE FULL MENU
+</button>
+                        </NavLink>
+
           </div>
         </div>
       </div>
