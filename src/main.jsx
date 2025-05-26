@@ -17,7 +17,7 @@ import AdminRoot from './root/AdminRoot';
 import AboutUspage from './pages/AboutUspage';
 import MenuPage from './pages/MenuPage';
 import ContactUsPage from './pages/ContactUsPage';
-
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
 function AppWrapper({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -72,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: 'menu',
         element: <MenuPage />,
+      },
+      {
+        path:"order-confirmation",
+         element:<OrderConfirmationPage/>
       },
     ],
   },

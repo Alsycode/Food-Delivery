@@ -7,7 +7,7 @@ const Footer = () => {
         <div className=' flex py-10 flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
 <div className='text-white'>
    <h1 className='text-3xl font-bold my-8 '>Yummm</h1>
-    <p className='w-full md:w-2/3 '>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore corporis illum nesciunt dolor repellat rerum et tempore asperiores? Dignissimos, atque eveniet at officia voluptate mollitia eius repellat exercitationem, delectus vitae beatae optio voluptatibus distinctio. Reprehenderit veniam mollitia consequuntur assumenda rerum.</p>
+    <p className='w-full md:w-2/3 '>When culinary artistry meets doorstep convenience.Savor handcrafted perfection, delivered with care.</p>
 </div>
 <div className='text-white'>
     <p className='text-xl  font-medium mb-5 '>COMPANY</p>

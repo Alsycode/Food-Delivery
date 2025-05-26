@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-function Header({ isDarkMode, toggleDarkMode }) {
+import { BsCart4 } from "react-icons/bs";
+import DarkModeToggle from "../components/DarkModeToggle"
+const Header = ({ isDarkMode, toggleDarkMode }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const location = useLocation();
@@ -10,7 +11,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-console.log("dak mode",isDarkMode)
+
   return (
     <header className="navbar bg-base-100 dark:bg-gray-800 md:px-10 sm:px-10" style={{background: "#e17e0f"}}>
       <div className="navbar-start">
@@ -26,7 +27,32 @@ console.log("dak mode",isDarkMode)
               `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
             }
           >
-            Home
+          <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
+  <span className="absolute inset-0 overflow-hidden rounded-full">
+    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+  </span>
+  <div className="relative flex space-x-2 items-center z-10 rounded-full  py-0.5 px-4 ring-1 ring-white/10 " style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
+    <span>
+    Home
+    </span>
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.75 8.75L14.25 12L10.75 15.25"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  </div>
+  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+</button>
           </NavLink>
           <NavLink 
             to="/menu" 
@@ -34,7 +60,32 @@ console.log("dak mode",isDarkMode)
               `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
             }
           >
-            Menu
+               <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
+  <span className="absolute inset-0 overflow-hidden rounded-full">
+    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+  </span>
+  <div className="relative flex space-x-2 items-center z-10 rounded-full  py-0.5 px-4 ring-1 ring-white/10 " style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
+    <span>
+Menu
+    </span>
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.75 8.75L14.25 12L10.75 15.25"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  </div>
+  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+</button>
           </NavLink>
           <NavLink 
             to="/about" 
@@ -42,7 +93,32 @@ console.log("dak mode",isDarkMode)
               `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
             }
           >
-            About
+              <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
+  <span className="absolute inset-0 overflow-hidden rounded-full">
+    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+  </span>
+  <div className="relative flex space-x-2 items-center z-10 rounded-full  py-0.5 px-4 ring-1 ring-white/10 " style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
+    <span>
+    About
+    </span>
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.75 8.75L14.25 12L10.75 15.25"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  </div>
+  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+</button>
           </NavLink>
           <NavLink 
             to="/contactus" 
@@ -50,7 +126,32 @@ console.log("dak mode",isDarkMode)
               `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
             }
           >
-            Contact Us
+               <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
+  <span className="absolute inset-0 overflow-hidden rounded-full">
+    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+  </span>
+  <div className="relative flex space-x-2 items-center z-10 rounded-full  py-0.5 px-4 ring-1 ring-white/10 " style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
+    <span>
+Contact Us
+    </span>
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.75 8.75L14.25 12L10.75 15.25"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  </div>
+  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+</button>
           </NavLink>
         </div>
       </div>
@@ -107,13 +208,7 @@ console.log("dak mode",isDarkMode)
             >
               Contact
             </NavLink>
-            <button
-              onClick={toggleDarkMode}
-              className={`btn ${isDarkMode ? 'btn-soft' : 'btn-neutral'} w-full`}
-            >
-              {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-            </button>
-
+            <DarkModeToggle />
             {!isAdmin && (
               <>
                 <Link to="/cart" className="btn btn-neutral w-full" onClick={() => setMenuOpen(false)}>
@@ -139,23 +234,17 @@ console.log("dak mode",isDarkMode)
       {/* Right-side buttons for large screens */}
       <div className="navbar-end hidden md:flex">
         <div className="flex items-center space-x-4">
-          <button
-            onClick={toggleDarkMode}
-            className={`btn ${isDarkMode ? 'btn-soft' : 'btn-neutral'}`}
-          >
-            {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-          </button>
-
+          <DarkModeToggle />
           {!isAdmin && (
             <>
-              <Link to="/cart" className="btn btn-neutral">
-                Cart ({cartCount})
+              <Link to="/cart" className='relative'>
+                <BsCart4 className="text-4xl"/>
+                <div className='absolute top-0 right-0 rounded-full w-[20px] h-[20px] bg-black text-white text-[9px] flex justify-center items-center'>
+                  {cartCount}
+                </div>
               </Link>
               <Link to="/login" className="btn btn-neutral">
                 Login
-              </Link>
-              <Link to="/register" className="btn btn-neutral">
-                Register
               </Link>
             </>
           )}

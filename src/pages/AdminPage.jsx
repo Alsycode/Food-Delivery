@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import Title from "../../src/components/Title"
 function AdminPage() {
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
@@ -16,9 +16,9 @@ function AdminPage() {
   const [editingProduct, setEditingProduct] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/products')
+    fetch('https://api.jsonstorage.net/v1/json/6e6da3c3-8566-4e1a-bd93-8e31e5ba2cbc/1307d9ba-eb03-4a0c-93f9-097ea820927e')
       .then(res => res.json())
-      .then(data => setProducts(data))
+      .then(data => setProducts(data.products))
       .catch(err => alert('Failed to load products: ' + err.message));
 
     fetch('http://localhost:3001/users?role_ne=admin')
@@ -177,13 +177,13 @@ function AdminPage() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+      <div className="text-2xl text-center font-bold mb-4"><Title text1={"ADMIN"} text2={" PANEL"}/></div>
 
       {/* Add/Edit Product Form */}
-      <div className="mb-8">
+      <div className="mb-8 flex flex-col w-[100%] justify-center   items-center">
         <h3 className="text-xl font-semibold mb-2">{editingProduct ? 'Edit Product' : 'Add New Product'}</h3>
-        <div className="card">
-          <div className="p-6">
+        <div className="card mb-4   w-[90%] md:w-[70%]">
+          <div className="p-6 ">
             <div className="mb-4">
               <label className="block text-sm font-medium mb-1">Name</label>
               <input
@@ -194,7 +194,8 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, name: e.target.value })
                     : setNewProduct({ ...newProduct, name: e.target.value })
                 }
-                className="input"
+                className="input "
+                style={{width:"100%"}}
                 placeholder="Enter product name"
               />
             </div>
@@ -209,7 +210,8 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, price: e.target.value })
                     : setNewProduct({ ...newProduct, price: e.target.value })
                 }
-                className="input"
+                className="input "
+                style={{width:"100%"}}
                 placeholder="Enter price"
               />
             </div>
@@ -224,6 +226,7 @@ function AdminPage() {
                     : setNewProduct({ ...newProduct, category: e.target.value })
                 }
                 className="input"
+                style={{width:"100%"}}
                 placeholder="Enter category"
               />
             </div>
@@ -233,7 +236,7 @@ function AdminPage() {
                 type="file"
                 accept="image/*"
                 onChange={(e) => handleImageChange(e, !!editingProduct)}
-                className="file-input"
+                className="file-input "
               />
               {(editingProduct?.image || newProduct.image) && (
                 <div className="mt-2">
@@ -321,9 +324,9 @@ function AdminPage() {
       </div>
 
       {/* Product List */}
-      <div className="mb-8">
+      <div className="mb-8 flex justify-center flex-col items-center w-[100%]">
         <h3 className="text-xl font-semibold mb-2">Manage Products</h3>
-        <div className="card">
+        <div className="card w-[70%]">
           <div className="p-6">
             {products.length === 0 ? (
               <p className="text-light-secondary dark:text-dark-secondary">No products available.</p>
@@ -376,9 +379,9 @@ function AdminPage() {
       </div>
 
       {/* User List */}
-      <div>
-        <h3 className="text-xl font-semibold mb-2">Manage Users</h3>
-        <div className="card">
+      <div className='flex justify-center items-center flex-col w-[100%]'>
+        <h3 className="text-xl font-semibold text-center mb-2">Manage Users</h3>
+        <div className="card w-[90%] md:w-[70%]">
           <div className="p-6">
             {users.length === 0 ? (
               <p className="text-light-secondary dark:text-dark-secondary">No users available.</p>

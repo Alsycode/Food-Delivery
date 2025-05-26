@@ -1,9 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { updateQuantity, removeItem, clearCart } from '../store/cartSlice';
+import Title from '../components/Title';
 
 function CartPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -12,16 +15,25 @@ function CartPage() {
       alert('Your cart is empty!');
       return;
     }
+    // Store order details before clearing cart
+    const orderDetails = {
+      items: [...cartItems],
+      total: total.toFixed(2),
+      orderDate: new Date().toLocaleString(),
+    };
     dispatch(clearCart());
-    alert('Checkout successful! Thank you for your order.');
+    // Navigate to order confirmation page with order details
+    navigate('/order-confirmation', { state: { orderDetails } });
   };
-const clearItems = () => {
-  dispatch(clearCart());
-  alert("Cart cleared")
-}
+
+  const clearItems = () => {
+    dispatch(clearCart());
+    alert("Cart cleared");
+  };
+
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
+      <div className="text-2xl font-bold mb-4"><Title text1={"SHOPPING"} text2={" CART"}/></div>
       {cartItems.length === 0 ? (
         <p className="text-base-content/70">Your cart is empty.</p>
       ) : (
@@ -63,13 +75,13 @@ const clearItems = () => {
               onClick={handleCheckout}
               className="btn btn-success mt-2 mr-2"
             >
-              Checkout
+              Proceed to Checkout
             </button>
             <button
               onClick={clearItems}
               className="btn btn-warning mt-2"
             >
-              Clear cart
+              Clear Cart
             </button>
           </div>
         </>
