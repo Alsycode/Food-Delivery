@@ -25,7 +25,7 @@ function HomePage() {
   );
 
   return (
-    <div className="mt-3 mb-3">
+    <div className="mt-3 mb-1">
       <div className="hero h-[600px] md:min-h-screen ">
         <div className="flex flex-col  justify-between items-center  md:flex-row-reverse">
           <img

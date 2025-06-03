@@ -34,7 +34,7 @@ function LoginPage() {
           <div>
             <div className="form-control flex justify-between mb-4">
               <label className="label">
-                <span >Email</span>
+                <h3  >Email</h3>
               </label>
               <input
                 type="email"
@@ -46,7 +46,7 @@ function LoginPage() {
             </div>
             <div className="form-control flex justify-between mb-4">
               <label className="label">
-                <span >Password</span>
+                <h3 >Password</h3>
               </label>
               <input
                 type="password"

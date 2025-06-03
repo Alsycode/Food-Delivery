@@ -41,7 +41,7 @@ function CartPage() {
     <div className="p-4">
       <div className="text-2xl font-bold mb-4"><Title text1={"ORDER"} text2={" SUMMARY"}/></div>
       {cartItems.length === 0 ? (
-        <p className="text-base-content/70">Your cart is empty.</p>
+        <h3 className="">Your cart is empty.</h3>
       ) : (
         <>
           <p className="text-lg mb-4">

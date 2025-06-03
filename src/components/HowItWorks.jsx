@@ -2,7 +2,7 @@ import React from 'react'
 import Title from './Title'
 const HowItWorks = () => {
   return (
-    <div className='w-full min-h-screen text-center flex flex-col gap-8 p-5 '>
+    <div className='w-full min-h-screen text-center flex flex-col justify-center items-center gap-8 py-5  '>
         <div className='text-center text-3xl font-bold'>
               <Title text1={"HOW IT"} text2={" WORKS"}/>  
         </div>
