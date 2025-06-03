@@ -7,35 +7,16 @@ const AboutUspage = () => {
 <Title text1={'ABOUT'} text2={" US"}/>
     </div>
     <div className='my-10 flex flex-col md:flex-row gap-16'>
-<img className='w-full md:max-w-[450px]' src="https://imgs.search.brave.com/e6fIiwJfZw8LTYTF-hDPLtR3h31aSpWzByCQ-JM0pbM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjgv/MTAyLzU5OS9zbWFs/bC9kZWxpc2lvdXMt/YnVyZ2VyLW9uLXRo/ZS1wbGF0ZS1pc29s/YXRlZC1mcmVlLXBo/b3RvLmpwZw" alt=''/>
+<img className='w-full md:max-w-[450px]' src="https://imgs.search.brave.com/e6fIiwJfZw8LTYTF-hDPLtR3h31aSpWzByCQ-JM0pbM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjgv/MTAyLzU5OS9zbWFs/bC9kZWxpc2lvdXMt/YnVyZ2VyLW9uLXRo/ZS1wbGF0ZS1pc29s/YXRlZC1mcmVlLXBo/b3RvLmpwZw" alt='Delicious burger'/>
 <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, labore dolorum delectus, eveniet enim iure non vitae voluptates blanditiis tempora iste ea eos magni praesentium unde minus quas quia explicabo sunt necessitatibus eligendi ipsa fuga odio. Expedita aliquam eos eaque voluptate quos corrupti nemo possimus temporibus quis, fuga rerum sunt deleniti? Dignissimos odio temporibus repudiandae saepe debitis perferendis aut quam consequatur obcaecati aliquam, modi alias suscipit accusamus officiis, cupiditate tempore doloremque reprehenderit eveniet! Non fuga nihil magni officia debitis, quaerat nostrum aut placeat? Esse laudantium ducimus fugiat voluptas dolorem totam aut autem repellat, eos mollitia enim harum, tempore officia sint.</p>
+<p>At Yummm, we’re passionate about connecting food lovers with the best local restaurants. Our mission is to make food delivery effortless, reliable, and delightful. Whether you're craving a hearty burger, a fresh salad, or exotic global cuisines, Yummm brings it all to your doorstep with just a few clicks. We partner with top restaurants to ensure every bite is a moment of joy, crafted with care and delivered with speed.</p>
 
 <b className='text-gray-800'>Our Mission</b>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vel minus fugit dignissimos animi cum aliquam vero nihil impedit. Reiciendis, est reprehenderit architecto explicabo rem accusantium asperiores ut recusandae neque dignissimos totam ex deleniti? Earum, cumque porro! Labore reiciendis fugit sed libero dolor aperiam, nam, qui ratione assumenda nemo explicabo.</p>
+<p>Our mission at Yummm is to redefine food delivery by offering a seamless, customer-focused experience. We aim to empower local restaurants while providing you with a diverse selection of high-quality meals, delivered fresh and fast. Your satisfaction is at the heart of everything we do.</p>
 </div>
 
     </div>
-    {/* <div className='text-4xl py-4'>
-<Title text1={"WHY"} text2={" CHOOSE US"}/>
-</div>
-<div className='text-sm mb-20 flex flex-col md:flex-row'>
-<div className='flex flex-col px-10 md:px-16 py-8 sm:py-20 gap-5 border'>
-<b className='text-gray-600'>Quality Assurance:</b>
-<p className='text-gray-600'>We meticulously select and vet each product to ensure it meets our stringent quality standards.</p>
-</div>
-<div className='flex flex-col px-10 md:px-16 py-8 sm:py-20 gap-5 border'>
-<b className='text-gray-600'>Convenience:</b>
-<p className='text-gray-600'>With our user-friendly interface and hassle-free ordering process, shopping has never been easier.
-</p>
-</div>
-<div className='flex flex-col px-10 md:px-16 py-8 sm:py-20 gap-5 border'>
-<b className='text-gray-400'>Exceptional Customer Service</b>
-<p className='text-gray-600'>Our team of dedicated professionals is here to assist you the way, ensuring your satisfaction is our top priority.
-</p>
-</div>
-</div> */}
-{/* <NewsletterBox/> */}
+    
   </div>
   )
 }

@@ -18,6 +18,7 @@ import AboutUspage from './pages/AboutUspage';
 import MenuPage from './pages/MenuPage';
 import ContactUsPage from './pages/ContactUsPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import Random from './pages/Random';
 function AppWrapper({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path:"order-confirmation",
          element:<OrderConfirmationPage/>
+      },
+      {
+        path:"random",
+         element:<Random/>
       },
     ],
   },

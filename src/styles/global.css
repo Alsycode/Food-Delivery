@@ -263,3 +263,12 @@ body {
 .dark .checkbox:focus {
   box-shadow: 0 0 0 2px var(--dark-primary);
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}

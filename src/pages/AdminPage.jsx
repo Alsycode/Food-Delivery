@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Title from "../../src/components/Title"
+import { useDispatch, useSelector } from 'react-redux';
+import { setWeather } from '../store/cartSlice';
+import Title from "../../src/components/Title";
+
 function AdminPage() {
+  const dispatch = useDispatch();
+  const currentWeather = useSelector((state) => state.cart.weather);
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
   const [newProduct, setNewProduct] = useState({
@@ -21,7 +26,7 @@ function AdminPage() {
       .then(data => setProducts(data.products))
       .catch(err => alert('Failed to load products: ' + err.message));
 
-    fetch('http://localhost:3001/users?role_ne=admin')
+    fetch('http://localhost:3000/users?role_ne=admin')
       .then(res => res.json())
       .then(data => setUsers(data))
       .catch(err => alert('Failed to load users: ' + err.message));
@@ -175,15 +180,43 @@ function AdminPage() {
     }
   };
 
+  const handleWeatherChange = (weather) => {
+    dispatch(setWeather(weather));
+    alert(`Weather set to ${weather}`);
+  };
+
   return (
-    <div className="p-4">
-      <div className="text-2xl text-center font-bold mb-4"><Title text1={"ADMIN"} text2={" PANEL"}/></div>
+    <div className="py-8 px-4">
+      <div className="text-3xl text-center font-bold mb-4"><Title text1={"ADMIN"} text2={" PANEL"}/></div>
+
+      {/* Weather Toggle */}
+      <div className="mb-8 flex flex-col w-[100%] justify-center items-center">
+        <h3 className="text-xl font-semibold mb-2">Set Weather</h3>
+        <div className="card w-[90%] md:w-[70%]">
+          <div className="p-6">
+            <div className="flex space-x-4">
+              <button
+                onClick={() => handleWeatherChange('sunny')}
+                className={`btn ${currentWeather === 'sunny' ? 'btn-primary' : 'btn-outline'} w-1/2`}
+              >
+                Sunny
+              </button>
+              <button
+                onClick={() => handleWeatherChange('rainy')}
+                className={`btn ${currentWeather === 'rainy' ? 'btn-primary' : 'btn-outline'} w-1/2`}
+              >
+                Rainy
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Add/Edit Product Form */}
-      <div className="mb-8 flex flex-col w-[100%] justify-center   items-center">
+      <div className="mb-8 flex flex-col w-[100%] justify-center items-center">
         <h3 className="text-xl font-semibold mb-2">{editingProduct ? 'Edit Product' : 'Add New Product'}</h3>
-        <div className="card mb-4   w-[90%] md:w-[70%]">
-          <div className="p-6 ">
+        <div className="card mb-4 w-[90%] md:w-[70%]">
+          <div className="p-6">
             <div className="mb-4">
               <label className="block text-sm font-medium mb-1">Name</label>
               <input
@@ -194,8 +227,8 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, name: e.target.value })
                     : setNewProduct({ ...newProduct, name: e.target.value })
                 }
-                className="input "
-                style={{width:"100%"}}
+                className="input"
+                style={{ width: "100%" }}
                 placeholder="Enter product name"
               />
             </div>
@@ -210,8 +243,8 @@ function AdminPage() {
                     ? setEditingProduct({ ...editingProduct, price: e.target.value })
                     : setNewProduct({ ...newProduct, price: e.target.value })
                 }
-                className="input "
-                style={{width:"100%"}}
+                className="input"
+                style={{ width: "100%" }}
                 placeholder="Enter price"
               />
             </div>
@@ -226,7 +259,7 @@ function AdminPage() {
                     : setNewProduct({ ...newProduct, category: e.target.value })
                 }
                 className="input"
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
                 placeholder="Enter category"
               />
             </div>
@@ -236,7 +269,7 @@ function AdminPage() {
                 type="file"
                 accept="image/*"
                 onChange={(e) => handleImageChange(e, !!editingProduct)}
-                className="file-input "
+                className="file-input"
               />
               {(editingProduct?.image || newProduct.image) && (
                 <div className="mt-2">

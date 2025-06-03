@@ -1,10 +1,12 @@
 import React from 'react'
 import ProductCard from '../components/ProductCard';
 import db from '../data/db.json';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 const MenuPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('All');
+  const weather = useSelector((state) => state.cart.weather);
 
   const categories = [...new Set(db.products.map(item => item.category))];
   const filteredItems = db.products.filter(item =>
@@ -32,7 +34,14 @@ const MenuPage = () => {
           ))}
         </select>
       </div>
+         {weather === 'rainy' && (
+            <div className="text-center text-lg text-yellow-600 flex justify-center items-center gap-2 py-6">
+              <span role="img" aria-label="rain">🌧️</span>
+              <span>Rainy weather: Please note deliveries may take 15 minutes longer.</span>
+            </div>
+          )}
       <div className='flex justify-center'>
+       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredItems.length > 0 ? (
           filteredItems.map(item => (

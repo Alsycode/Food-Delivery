@@ -3,14 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateQuantity, removeItem, clearCart } from '../store/cartSlice';
 import Title from '../components/Title';
+import { toast } from 'react-toastify';
 
 function CartPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
+  const weather = useSelector((state) => state.cart.weather);
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const baseDeliveryTime = 30; // Base delivery time in minutes
+  const deliveryTime = weather === 'rainy' ? baseDeliveryTime + 15 : baseDeliveryTime;
 
   const handleCheckout = () => {
+    toast.success("Order successful");
     if (cartItems.length === 0) {
       alert('Your cart is empty!');
       return;
@@ -20,6 +25,7 @@ function CartPage() {
       items: [...cartItems],
       total: total.toFixed(2),
       orderDate: new Date().toLocaleString(),
+      estimatedDelivery: `${deliveryTime} minutes`,
     };
     dispatch(clearCart());
     // Navigate to order confirmation page with order details
@@ -33,11 +39,19 @@ function CartPage() {
 
   return (
     <div className="p-4">
-      <div className="text-2xl font-bold mb-4"><Title text1={"SHOPPING"} text2={" CART"}/></div>
+      <div className="text-2xl font-bold mb-4"><Title text1={"ORDER"} text2={" SUMMARY"}/></div>
       {cartItems.length === 0 ? (
         <p className="text-base-content/70">Your cart is empty.</p>
       ) : (
         <>
+          <p className="text-lg mb-4">
+            Estimated Delivery Time: {deliveryTime} minutes{' '}
+            {weather === 'rainy' && (
+              <span className="text-sm text-yellow-600">
+                (+15 mins due to rainy weather)
+              </span>
+            )}
+          </p>
           {cartItems.map(item => (
             <div key={item.id} className="card bg-base-100 dark:bg-gray-700 shadow-xl mb-4">
               <div className="card-body flex flex-row justify-between items-center">

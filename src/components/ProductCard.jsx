@@ -1,11 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../store/cartSlice';
-
+import { toast } from 'react-toastify';
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
   console.log("Tags:", item);
-
+const addToCart = (item) => {
+  toast.success(`${item.name} added to cart`)
+  dispatch(addItem(item))
+}
 
   return (
     <div className="card  min-w-[280px]  max-w-[320px] shadow-sm border" >
@@ -39,7 +42,7 @@ const ProductCard = ({ item }) => {
     <button
       className="btn"
       style={{background:"#df810d"}}
-      onClick={() => dispatch(addItem(item))}
+      onClick={() => addToCart(item)}
     >
       Add to Cart
     </button>

@@ -4,6 +4,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     items: [],
+    weather: 'sunny', // Default weather is sunny
   },
   reducers: {
     addItem: (state, action) => {
@@ -32,8 +33,11 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
     },
+    setWeather: (state, action) => {
+      state.weather = action.payload; // Set weather to 'rainy' or 'sunny'
+    },
   },
 });
 
-export const { addItem, updateQuantity, removeItem, clearCart } = cartSlice.actions;
+export const { addItem, updateQuantity, removeItem, clearCart, setWeather } = cartSlice.actions;
 export default cartSlice.reducer;
