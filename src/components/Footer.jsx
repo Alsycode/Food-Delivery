@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <div className='px-4  bottom-0 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] w-screen'    style={{background:"#df810d"}}>
@@ -12,10 +12,14 @@ const Footer = () => {
 <div className='text-white'>
     <p className='text-xl  font-medium mb-5 '>COMPANY</p>
     <ul className=' flex flex-col gap-2 '>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Contact Us</li>
-        <li>Menu</li>
+      <li><Link href='/'>Home</Link></li>  
+      <li> <Link href='/menu'>Menu</Link></li>
+      <li> <Link href='/about'>About Us</Link></li>  
+      <li>  <Link href='/contactus'>Contact Us</Link></li>  
+         
+       
+      
+       
     </ul>
 
 </div>
