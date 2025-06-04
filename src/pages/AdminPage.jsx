@@ -21,12 +21,12 @@ function AdminPage() {
   const [editingProduct, setEditingProduct] = useState(null);
 
   useEffect(() => {
-    fetch('https://api.jsonstorage.net/v1/json/6e6da3c3-8566-4e1a-bd93-8e31e5ba2cbc/1307d9ba-eb03-4a0c-93f9-097ea820927e')
+    fetch('https://jsondata-1-uc7k.onrender.com/products/')
       .then(res => res.json())
-      .then(data => setProducts(data.products))
+      .then(data => setProducts(data))
       .catch(err => alert('Failed to load products: ' + err.message));
 
-    fetch('http://localhost:3000/users?role_ne=admin')
+    fetch('https://jsondata-1-uc7k.onrender.com/users?role_ne=admin')
       .then(res => res.json())
       .then(data => setUsers(data))
       .catch(err => alert('Failed to load users: ' + err.message));
@@ -79,7 +79,7 @@ function AdminPage() {
         chefsChoice: !!newProduct.chefsChoice,
       };
 
-      const response = await fetch('http://localhost:3001/products', {
+      const response = await fetch('https://jsondata-1-uc7k.onrender.com/products/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(product),
@@ -127,7 +127,7 @@ function AdminPage() {
         chefsChoice: !!editingProduct.chefsChoice,
       };
 
-      const response = await fetch(`http://localhost:3001/products/${editingProduct.id}`, {
+      const response = await fetch(`https://jsondata-1-uc7k.onrender.com/products/${editingProduct.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedProduct),
@@ -148,7 +148,7 @@ function AdminPage() {
 
   const handleDeleteProduct = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3001/products/${id}`, {
+      const response = await fetch(`https://jsondata-1-uc7k.onrender.com/products/${id}`, {
         method: 'DELETE',
       });
 
@@ -165,7 +165,7 @@ function AdminPage() {
 
   const handleDeleteUser = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3001/users/${id}`, {
+      const response = await fetch(`https://jsondata-1-uc7k.onrender.com/users/${id}`, {
         method: 'DELETE',
       });
 
@@ -184,7 +184,8 @@ function AdminPage() {
     dispatch(setWeather(weather));
     alert(`Weather set to ${weather}`);
   };
-
+console.log("products",products)
+console.log("users",users)
   return (
     <div className="py-8 px-4">
       <div className="text-3xl text-center font-bold mb-4"><Title text1={"ADMIN"} text2={" PANEL"}/></div>
@@ -213,7 +214,7 @@ function AdminPage() {
       </div>
 
       {/* Add/Edit Product Form */}
-      <div className="mb-8 flex flex-col w-[100%] justify-center items-center">
+       <div className="mb-8 flex flex-col w-[100%] justify-center items-center">
         <h3 className="text-xl font-semibold mb-2">{editingProduct ? 'Edit Product' : 'Add New Product'}</h3>
         <div className="card mb-4 w-[90%] md:w-[70%]">
           <div className="p-6">
@@ -354,7 +355,7 @@ function AdminPage() {
             )}
           </div>
         </div>
-      </div>
+      </div> 
 
       {/* Product List */}
       <div className="mb-8 flex justify-center flex-col items-center w-[100%]">
@@ -409,7 +410,7 @@ function AdminPage() {
             )}
           </div>
         </div>
-      </div>
+      </div> 
 
       {/* User List */}
       <div className='flex justify-center items-center flex-col w-[100%]'>

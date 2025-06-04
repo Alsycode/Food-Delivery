@@ -19,6 +19,7 @@ import MenuPage from './pages/MenuPage';
 import ContactUsPage from './pages/ContactUsPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import Random from './pages/Random';
+
 function AppWrapper({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -75,12 +76,12 @@ const router = createBrowserRouter([
         element: <MenuPage />,
       },
       {
-        path:"order-confirmation",
-         element:<OrderConfirmationPage/>
+        path: 'order-confirmation',
+        element: <OrderConfirmationPage />,
       },
       {
-        path:"random",
-         element:<Random/>
+        path: 'random',
+        element: <Random />,
       },
     ],
   },
@@ -98,6 +99,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 );

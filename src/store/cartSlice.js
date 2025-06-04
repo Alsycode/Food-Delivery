@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    items: [],
-    weather: 'sunny', // Default weather is sunny
+    items: JSON.parse(localStorage.getItem('cartItems')) || [],
+    weather: 'sunny',
   },
   reducers: {
     addItem: (state, action) => {
@@ -34,10 +34,13 @@ const cartSlice = createSlice({
       state.items = [];
     },
     setWeather: (state, action) => {
-      state.weather = action.payload; // Set weather to 'rainy' or 'sunny'
+      state.weather = action.payload;
+    },
+    setCartItems: (state, action) => {
+      state.items = action.payload;
     },
   },
 });
 
-export const { addItem, updateQuantity, removeItem, clearCart, setWeather } = cartSlice.actions;
+export const { addItem, updateQuantity, removeItem, clearCart, setWeather, setCartItems } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -16,7 +16,7 @@ function RegisterPage() {
 
     try {
       // Check for duplicate email
-      const response = await fetch('http://localhost:3001/users?email=' + encodeURIComponent(email));
+      const response = await fetch('https://jsondata-1-uc7k.onrender.com/users?email=' + encodeURIComponent(email));
       const users = await response.json();
       if (users.length > 0) {
         alert('Email already registered.');
@@ -24,7 +24,7 @@ function RegisterPage() {
       }
 
       // Generate new user ID
-      const allUsersResponse = await fetch('http://localhost:3001/users');
+      const allUsersResponse = await fetch('https://jsondata-1-uc7k.onrender.com/users');
       const allUsers = await allUsersResponse.json();
       const newUser = {
         id: allUsers.length + 1,
@@ -35,7 +35,7 @@ function RegisterPage() {
       };
 
       // Add new user to db.json
-      const postResponse = await fetch('http://localhost:3001/users', {
+      const postResponse = await fetch('https://jsondata-1-uc7k.onrender.com/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newUser),
@@ -57,7 +57,7 @@ function RegisterPage() {
     <div className="flex items-center justify-center min-h-screen">
       <div className="card bg-base-100 dark:bg-gray-700 shadow-xl w-full max-w-md">
         <div className="card-body ">
-        <h2 className="card-title flex justify-center text-2xl mb-4 text-center ">Register</h2>
+        <h2 className="card-title text-[#e17e0f] flex justify-center text-2xl mb-4 text-center ">Register</h2>
           <div>
             <div className="form-control  flex justify-between  mb-4">
               <label className="label">
@@ -97,7 +97,7 @@ function RegisterPage() {
             </div>
             <button
               onClick={handleRegister}
-              className="btn btn-primary w-full"
+              className="btn w-full bg-[#e17e0f] text-white hover:bg-[#f37335] transition-colors disabled:bg-gray-400"
             >
               Register
             </button>

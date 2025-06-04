@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { BsCart4 } from "react-icons/bs";
-import DarkModeToggle from "../components/DarkModeToggle"
+import DarkModeToggle from "../components/DarkModeToggle";
+import useAuth from "../hooks/useAuth";
+
 const Header = ({ isDarkMode, toggleDarkMode }) => {
+  const { user, logout } = useAuth();
   const cartItems = useSelector((state) => state.cart.items);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const location = useLocation();
@@ -13,251 +16,208 @@ const Header = ({ isDarkMode, toggleDarkMode }) => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header className="navbar bg-base-100 dark:bg-gray-800 md:px-10 sm:px-10" style={{background: "#e17e0f"}}>
+    <header className="navbar bg-[#e17e0f] text-white md:px-10 sm:px-10 shadow-md" role="navigation">
       <div className="navbar-start">
-        <Link to={isAdmin ? "/admin" : "/"} className="text-3xl font-bold text-white">Yummm</Link>
+        <Link to={isAdmin ? "/admin" : "/"} className="text-3xl font-bold">Yummm</Link>
       </div>
 
-      {/* Navigation links for all screens */}
+      {/* Navigation links for large screens */}
       <div className="navbar-center hidden lg:flex">
-        <div className="flex gap-2">
-          <NavLink 
-            to="" 
-            className={({ isActive }) => 
-              `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
-            }
-          >
-          <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
-  <span className="absolute inset-0 overflow-hidden rounded-full">
-    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-  </span>
-  <div className="relative flex space-x-2 items-center z-10 rounded-full  py-0.5 px-4 ring-1 ring-white/10 " style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
-    <span>
-    Home
-    </span>
-    <svg
-      fill="none"
-      height="16"
-      viewBox="0 0 24 24"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M10.75 8.75L14.25 12L10.75 15.25"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-      />
-    </svg>
-  </div>
-  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-</button>
-          </NavLink>
-          <NavLink 
-            to="/menu" 
-            className={({ isActive }) => 
-              `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
-            }
-          >
-               <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
-  <span className="absolute inset-0 overflow-hidden rounded-full">
-    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-  </span>
-  <div className="relative flex space-x-2 items-center z-10 rounded-full  py-0.5 px-4 ring-1 ring-white/10 " style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
-    <span>
-Menu
-    </span>
-    <svg
-      fill="none"
-      height="16"
-      viewBox="0 0 24 24"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M10.75 8.75L14.25 12L10.75 15.25"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-      />
-    </svg>
-  </div>
-  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-</button>
-          </NavLink>
-          <NavLink 
-            to="/about" 
-            className={({ isActive }) => 
-              `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
-            }
-          >
-              <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
-  <span className="absolute inset-0 overflow-hidden rounded-full">
-    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-  </span>
-  <div className="relative flex space-x-2 items-center z-10 rounded-full  py-0.5 px-4 ring-1 ring-white/10 " style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
-    <span>
-    About
-    </span>
-    <svg
-      fill="none"
-      height="16"
-      viewBox="0 0 24 24"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M10.75 8.75L14.25 12L10.75 15.25"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-      />
-    </svg>
-  </div>
-  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-</button>
-          </NavLink>
-          <NavLink 
-            to="/contactus" 
-            className={({ isActive }) => 
-              `text-white hover:text-gray-200 ${isActive ? 'font-bold' : ''}`
-            }
-          >
-               <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
-  <span className="absolute inset-0 overflow-hidden rounded-full">
-    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-  </span>
-  <div className="relative flex space-x-2 items-center z-10 rounded-full  py-0.5 px-4 ring-1 ring-white/10 " style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
-    <span>
-Contact Us
-    </span>
-    <svg
-      fill="none"
-      height="16"
-      viewBox="0 0 24 24"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M10.75 8.75L14.25 12L10.75 15.25"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-      />
-    </svg>
-  </div>
-  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-</button>
-          </NavLink>
+        <div className="flex gap-4">
+          {['/', '/menu', '/about', '/contactus'].map((path, index) => (
+            <NavLink
+              key={path}
+              to={path}
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-md transition-colors duration-200 ${
+                  isActive ? 'bg-[#ec4f00] font-bold' : 'hover:bg-[#fdc830]'
+                }`
+              }
+            >
+              {['Home', 'Menu', 'About', 'Contact Us'][index]}
+            </NavLink>
+          ))}
         </div>
       </div>
 
-      {/* Hamburger for mobile and md screens */}
+      {/* Hamburger for mobile and medium screens */}
       <div className="navbar-end md:hidden">
         <button
-          className="btn btn-square btn-ghost w-[70px]"
+          className="btn btn-square btn-ghost w-20 h-20"
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-13 w-13" fill="none"
-               viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-20 w-20"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
 
         {menuOpen && (
-          <div className="absolute right-4 top-16 z-50 w-48 bg-white dark:bg-gray-700 shadow-lg rounded-lg p-4 flex flex-col space-y-2">
-            <NavLink 
-              to="" 
-              className={({ isActive }) => 
-                `btn btn-ghost w-full ${isActive ? 'font-bold' : ''}`
-              }
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </NavLink>
-            <NavLink 
-              to="/menu" 
-              className={({ isActive }) => 
-                `btn btn-ghost w-full ${isActive ? 'font-bold' : ''}`
-              }
-              onClick={() => setMenuOpen(false)}
-            >
-              Menu
-            </NavLink>
-            <NavLink 
-              to="/about" 
-              className={({ isActive }) => 
-                `btn btn-ghost w-full ${isActive ? 'font-bold' : ''}`
-              }
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </NavLink>
-            <NavLink 
-              to="/contactus" 
-              className={({ isActive }) => 
-                `btn btn-ghost w-full ${isActive ? 'font-bold' : ''}`
-              }
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact
-            </NavLink>
-            <div className='flex justify-center items-center mb-4'>            <DarkModeToggle /></div>
-
-            {!isAdmin && (
+          <div className="absolute right-4 top-16 z-50 w-48 bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex flex-col space-y-2">
+            {['/', '/menu', '/about', '/contactus'].map((path, index) => (
+              <NavLink
+                key={path}
+                to={path}
+                className={({ isActive }) =>
+                  `btn btn-ghost w-full text-left ${isActive ? 'font-bold bg-gray-200 dark:bg-gray-600' : ''}`
+                }
+                onClick={() => setMenuOpen(false)}
+              >
+                {['Home', 'Menu', 'About', 'Contact Us'][index]}
+              </NavLink>
+            ))}
+            <div className="flex justify-center items-center">
+              <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+            </div>
+            {user && !isAdmin ? (
               <>
-                <Link to="/cart" className="btn btn-neutral w-full" onClick={() => setMenuOpen(false)}>
+                <span className="text-center font-semibold">{user.name}</span>
+                <Link
+                  to="/cart"
+                  className="btn btn-outline btn-sm w-full"
+                  onClick={() => setMenuOpen(false)}
+                >
                   Cart ({cartCount})
                 </Link>
-                <Link to="/login" className="btn btn-neutral w-full" onClick={() => setMenuOpen(false)}>
+                <button
+                  onClick={() => {
+                    logout();
+                    setMenuOpen(false);
+                  }}
+                  className="btn btn-outline btn-sm w-full"
+                >
+                  Logout
+                </button>
+              </>
+            ) : !user && !isAdmin ? (
+              <>
+                <Link
+                  to="/cart"
+                  className="btn btn-outline btn-sm w-full"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Cart ({cartCount})
+                </Link>
+                <Link
+                  to="/login"
+                  className="btn btn-primary btn-sm w-full"
+                  onClick={() => setMenuOpen(false)}
+                >
                   Login
                 </Link>
-                <Link to="/register" className="btn btn-neutral w-full" onClick={() => setMenuOpen(false)}>
+                <Link
+                  to="/register"
+                  className="btn btn-outline btn-sm w-full"
+                  onClick={() => setMenuOpen(false)}
+                >
                   Register
                 </Link>
               </>
-            )}
-            {isAdmin && (
-              <Link to="/" className="btn btn-outline btn-sm w-full" onClick={() => setMenuOpen(false)}>
-                User Portal
-              </Link>
+            ) : (
+              <>
+                {user && (
+                  <>
+                    <span className="text-center font-semibold">{user.name}</span>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setMenuOpen(false);
+                      }}
+                      className="btn btn-outline btn-sm w-full"
+                    >
+                      Logout
+                    </button>
+                  </>
+                )}
+                <Link
+                  to="/"
+                  className="btn btn-outline btn-sm w-full"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  User Portal
+                </Link>
+              </>
             )}
           </div>
         )}
       </div>
 
       {/* Right-side buttons for large screens */}
-      <div className="navbar-end hidden md:flex">
-        <div className="flex items-center space-x-4">
-          <DarkModeToggle />
-          {!isAdmin && (
-            <>
-              <Link to="/cart" className='relative'>
-                <BsCart4 className="text-4xl"/>
-                <div className='absolute top-0 right-0 rounded-full w-[20px] h-[20px] bg-black text-white text-[9px] flex justify-center items-center'>
+      <div className="navbar-end hidden md:flex items-center space-x-4">
+        <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+        {user && !isAdmin ? (
+          <>
+            <span className="font-semibold">{user.name}</span>
+            <Link to="/cart" className="relative" aria-label={`Cart with ${cartCount} items`}>
+              <BsCart4 className="text-3xl" />
+              {cartCount > 0 && (
+                <div className="absolute -top-2 -right-2 rounded-full w-5 h-5 bg-black text-white text-xs flex justify-center items-center">
                   {cartCount}
                 </div>
-              </Link>
-              <Link to="/login" className="btn btn-neutral">
-                Login
-              </Link>
-            </>
-          )}
-          {isAdmin && (
-            <Link to="/" className="btn btn-outline btn-sm">
+              )}
+            </Link>
+            <button
+              onClick={logout}
+              className="btn btn-outline btn-sm text-white border-white hover:bg-[#f37335]"
+              aria-label="Logout"
+            >
+              Logout
+            </button>
+          </>
+        ) : !user && !isAdmin ? (
+          <>
+            <Link to="/cart" className="relative" aria-label={`Cart with ${cartCount} items`}>
+              <BsCart4 className="text-3xl" />
+              {cartCount > 0 && (
+                <div className="absolute -top-2 -right-2 rounded-full w-5 h-5 bg-black text-white text-xs flex justify-center items-center">
+                  {cartCount}
+                </div>
+              )}
+            </Link>
+            <Link to="/login" className="btn btn-primary btn-sm" aria-label="Login">
+              Login
+            </Link>
+            <Link to="/register" className="btn btn-outline btn-sm text-white border-white hover:bg-[#f37335]" aria-label="Register">
+              Register
+            </Link>
+          </>
+        ) : (
+          <>
+            {user && (
+              <>
+                <span className="font-semibold">{user.name}</span>
+                <button
+                  onClick={logout}
+                  className="btn btn-outline btn-sm text-white border-white hover:bg-[#f37335]"
+                  aria-label="Logout"
+                >
+                  Logout
+                </button>
+              </>
+            )}
+            <Link
+              to="/"
+              className="btn btn-outline btn-sm text-white border-white hover:bg-[#f37335]"
+              aria-label="User Portal"
+            >
               User Portal
             </Link>
-          )}
-        </div>
+          </>
+        )}
       </div>
     </header>
   );
-}
+};
 
 export default Header;

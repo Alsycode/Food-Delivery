@@ -2,20 +2,26 @@ import React from 'react'
 import ProductCard from '../components/ProductCard';
 import db from '../data/db.json';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 const MenuPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('All');
   const weather = useSelector((state) => state.cart.weather);
-
-  const categories = [...new Set(db.products.map(item => item.category))];
-  const filteredItems = db.products.filter(item =>
+  const [products,setProducts] = useState([])
+   useEffect(() => {
+      fetch('https://jsondata-1-uc7k.onrender.com/products/')
+        .then(res => res.json())
+        .then(data => setProducts(data))
+        .catch(err => alert('Failed to load products: ' + err.message));},[])
+  const categories = [...new Set(products.map(item => item.category))];
+  const filteredItems = products.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (filterCategory === 'All' || item.category === filterCategory)
   );
+  console.log("xxxxxxxx",products)
   return (
     <div className=" mt-3 mb-3">
-      <div className="flex flex-col sm:flex-row justify-between mb-4 ">
+       <div className="flex flex-col sm:flex-row justify-between mb-4 ">
         <input
           type="text"
           placeholder="Search products..."
@@ -51,7 +57,7 @@ const MenuPage = () => {
           <p className="text-base-content/70">No products found.</p>
         )}
       </div>
-      </div>
+      </div> 
  
     </div>
   )

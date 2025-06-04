@@ -15,14 +15,21 @@ function HomePage() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('All');
+  const [products,setProducts] = useState([])
   const weather = useSelector((state) => state.cart.weather);
   const menuSectionRef = useRef(null); // Create a ref for the menu section
 
-  const categories = [...new Set(db.products.map(item => item.category))];
+   useEffect(() => {
+      fetch('https://jsondata-1-uc7k.onrender.com/products/')
+        .then(res => res.json())
+        .then(data => setProducts(data))
+        .catch(err => alert('Failed to load products: ' + err.message));},[])
+
+  const categories = [...new Set(products.map(item => item.category))];
   const [selectedCategory, setSelectedCategory] = useState('All'); 
 
   // Filter items based on search term and selected category
-  const filteredItems = db.products.filter(item =>
+  const filteredItems = products.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (selectedCategory === 'All' || item.category === selectedCategory)
   );
@@ -31,7 +38,7 @@ function HomePage() {
   const scrollToMenu = () => {
     menuSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
+console.log(products)
   return (
     <div className="mt-3 mb-1">
       <div className="hero h-[600px] md:min-h-screen ">
@@ -57,14 +64,14 @@ function HomePage() {
           <span>Rainy weather: Please note deliveries may take 15 minutes longer.</span>
         </div>
       )}
-      <BestSellers />
+      <BestSellers products={products} />
       {weather === 'rainy' && (
         <div className="text-center text-lg text-yellow-600 flex justify-center items-center gap-2">
           <span role="img" aria-label="rain">🌧️</span>
           <span>Rainy weather: Please note deliveries may take 15 minutes longer.</span>
         </div>
       )}
-      <Chefschoice />
+      <Chefschoice products={products} />
       <div className='w-full'>
         <div className='my-10 flex flex-col gap-4'>
           <div className='text-center py-8 text-3xl' ref={menuSectionRef}>
@@ -77,7 +84,7 @@ function HomePage() {
             </div>
           )}
           {/* Rendering category tabs */}
-          <div className='flex justify-evenly items-center overflow-scroll'>
+          <div className='flex justify-evenly items-center overflow-scroll '>
             <button 
               onClick={() => setSelectedCategory("All")}
               className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block"
@@ -88,7 +95,7 @@ function HomePage() {
               <div className="relative flex space-x-2 items-center z-10 rounded-full py-0.5 px-4 ring-1 ring-white/10" style={{ background: 'linear-gradient(to right, #fdc830, #f37335)' }}>
                 <span>All</span>
               </div>
-              <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+              <span className="absolute -bottom-0 left-[1.125rem] h-px  bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
             </button>
             {categories.map((item, index) => (
               <div
